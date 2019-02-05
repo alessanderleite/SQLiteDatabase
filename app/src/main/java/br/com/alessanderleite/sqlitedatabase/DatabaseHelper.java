@@ -6,24 +6,23 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    //Table name
+    // Table Name
     public static final String TABLE_NAME = "COUNTRIES";
 
-    //Table columns
+    // Table columns
     public static final String _ID = "_id";
     public static final String SUBJECT = "subject";
     public static final String DESC = "description";
 
-    //Database Information
-    static final String DB_NAME = "ALESSANDER_LEITE.DB";
+    // Database Information
+    static final String DB_NAME = "JOURNALDEV_COUNTRIES.DB";
 
-    //database version
+    // database version
     static final int DB_VERSION = 1;
 
-    //Creating a table query
-    private static final String CREATE_TABLE =  "create table " + "(" + _ID
-            + " INTEGER PRIMARY KEY AUTOINCREMENT, " + SUBJECT + " TEXT NOT NULL, " +
-            DESC + " TEXT);";
+    // Creating table query
+    private static final String CREATE_TABLE = "create table " + TABLE_NAME + "(" + _ID
+            + " INTEGER PRIMARY KEY AUTOINCREMENT, " + SUBJECT + " TEXT NOT NULL, " + DESC + " TEXT);";
 
     public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -37,5 +36,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        onCreate(db);
     }
 }

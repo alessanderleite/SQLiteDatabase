@@ -74,7 +74,7 @@ public class CountryListActivity extends AppCompatActivity {
 
         int id = item.getItemId();
 
-        if (id == R.id.add_recore) {
+        if (id == R.id.add_record) {
 
             Intent add_mem = new Intent(this, AddCountryActivity.class);
             startActivity(add_mem);
